@@ -1,16 +1,9 @@
 const express = require('express')
-const bodyParser = require('body-parser')
-
 const app = express()
-const PORT = process.env.PORT ?? 1234
+const PORT = process.env.PORT || 3000 // Usa el puerto proporcionado por Render o el 3000 si no está disponible
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
-
-app.get('/', (req, res) => {
-  res.status(200).send('¡Hola, mundo!')
-})
+// ... Resto de tu configuración ...
 
 app.listen(PORT, () => {
-  console.log(`Servidor escuchando en http://localhost:${PORT}`)
+  console.log(`Servidor escuchando en el puerto ${PORT}`)
 })
