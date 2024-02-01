@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const PORT = process.env.PORT || 3000 // Usa el puerto proporcionado por Render o el 3000 si no está disponible
+const PORT = process.env.PORT || 3000
 
 // ... Resto de tu configuración ...
 
