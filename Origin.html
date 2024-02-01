@@ -1,0 +1,100 @@
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI GPT-3 Chat API Example</title>
+<!-- Incluye el SDK de Salesforce Marketing Cloud -->
+
+
+
+
+<form id="chatForm">
+    <label for="userQuestion">Escribe tu pregunta:</label>
+    <input type="text" id="userQuestion" name="userQuestion" required="">
+    <button type="button" onclick="realizarLlamadaAPI()">Enviar</button>
+</form>
+
+<div id="dialogueContainer"></div>
+
+
+
+<style>
+    .user-message {
+        color: blue;
+    }
+
+    .assistant-message {
+        color: green;
+    }
+</style>
+
+
+
+
+/*<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas y Respuestas</title>
+    <!-- Incluye el SDK de Salesforce Marketing Cloud -->
+    <script src="path/to/blocksdk.js"></script>
+
+    <!-- Incluye Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <form id="chatForm">
+            <div class="form-group">
+                <label for="userQuestion">Escribe tu pregunta:</label>
+                <input type="text" class="form-control" id="userQuestion" name="userQuestion" required>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="realizarLlamadaAPI()">Enviar</button>
+        </form>
+
+        <div id="dialogueContainer" class="mt-3"></div>
+    </div>
+
+    <!-- Agrega el SDK de ChatGPT -->
+    <script src="https://cdn.jsdelivr.net/npm/@openai/chatgpt@1.0.0/dist/chatgpt.browser.umd.min.js"></script>
+
+    <style>
+        .user-message {
+            color: blue;
+        }
+
+        .assistant-message {
+            color: green;
+        }
+    </style>
+
+    <script>
+        var sdk = new window.sfdc.BlockSDK();
+
+        function realizarLlamadaAPI() {
+            var userQuestion = document.getElementById('userQuestion').value;
+
+            // Aquí puedes utilizar el SDK de ChatGPT para realizar la llamada a la API
+            // y mostrar la respuesta en el contenedor de diálogo.
+            // Asegúrate de adaptar el código según la documentación del SDK de ChatGPT.
+            // Ejemplo básico (puede necesitar ajustes según la implementación real):
+            chatGPT.sendMessage(userQuestion).then(function(response) {
+                mostrarMensaje(response.choices[0].message, 'assistant-message');
+            });
+
+            // Puedes añadir lógica adicional según sea necesario.
+        }
+
+        function mostrarMensaje(message, className) {
+            var dialogueContainer = document.getElementById('dialogueContainer');
+            var messageElement = document.createElement('div');
+            messageElement.textContent = message;
+            messageElement.className = className;
+            dialogueContainer.appendChild(messageElement);
+        }
+    </script>
+</body>
+</html>
+*/
