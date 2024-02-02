@@ -3,12 +3,12 @@ const bodyParser = require('body-parser');
 const SDK = require('blocksdk');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Ruta para servir el archivo block.js
+// Ruta para servir el contenido del bloque SDK
 app.get('/block.js', (req, res) => {
   res.sendFile(__dirname + '/block.js');
 });
@@ -25,18 +25,12 @@ app.listen(PORT, () => {
 // Función principal que se ejecuta al cargar el bloque
 async function init() {
   // Registra un evento para el cambio de contenido en el formulario
-  SDK.getData('userQuestion', async function (data) {
+  SDK.addEventListener(SDK.EventType.AFTER_SUBMIT, async function (data) {
     // Realiza acciones según los datos recibidos
     // Puedes agregar lógica adicional aquí
 
     // Ejemplo: Loguea en la consola la pregunta del usuario
-    console.log('Pregunta del usuario:', data.userQuestion);
-  });
-
-  // Registra un evento para el botón de envío
-  SDK.registerSubmitHandler(async function () {
-    // Realiza acciones al enviar el formulario
-    // Puedes agregar lógica adicional aquí
+    console.log('Pregunta del usuario:', data);
 
     // Ejemplo: Envía un mensaje al usuario en el contenedor de diálogo
     SDK.setSuperContent('<div class="assistant-message">¡Mensaje del asistente!</div>');
