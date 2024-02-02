@@ -24,16 +24,22 @@ app.listen(PORT, () => {
 
 // Función principal que se ejecuta al cargar el bloque
 async function init() {
-  // Registra un evento para el cambio de contenido en el formulario
-  SDK.addEventListener(SDK.EventType.AFTER_SUBMIT, async function (data) {
-    // Realiza acciones según los datos recibidos
+  // Manejar la solicitud POST del formulario
+  app.post('/', async (req, res) => {
+    // Obtener los datos del formulario
+    const data = req.body;
+
+    // Realizar acciones según los datos recibidos
     // Puedes agregar lógica adicional aquí
 
     // Ejemplo: Loguea en la consola la pregunta del usuario
-    console.log('Pregunta del usuario:', data);
+    console.log('Pregunta del usuario:', data.userQuestion);
 
     // Ejemplo: Envía un mensaje al usuario en el contenedor de diálogo
     SDK.setSuperContent('<div class="assistant-message">¡Mensaje del asistente!</div>');
+
+    // Responder a la solicitud POST
+    res.status(200).send('OK');
   });
 
   // Ejecuta acciones adicionales según sea necesario
